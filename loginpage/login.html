@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Sign Up and Sign In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="googleicon">
+                        <img src="images/search.png" class="google-logo">
+                    </a>
+                    <a href="#" class="linkdinicon">
+                        <img src="images/linkedin.png" class="linkdin-logo">
+                    </a>
+                    <a href="#" class="githubicon">
+                        <img src="images/github.png" class="github-logo">
+                    </a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button onclick="gosignup()" type="button">sign-up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="googleicon">
+                        <img src="images/search.png" class="google-logo">
+                    </a>
+                    <a href="#" class="linkdinicon">
+                        <img src="images/linkedin.png" class="linkdin-logo">
+                    </a>
+                    <a href="#" class="githubicon">
+                        <img src="images/github.png" class="github-logo">
+                    </a>
+                </div>
+                <span>or use your email password</span>
+                <input type="email" placeholder="emailaddress">
+                <input type="password" placeholder="Password">
+                <a href="#">Forgot Your Password?</a>
+                <button onclick="gosign()" type="button">Sign In</button>
+                
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
