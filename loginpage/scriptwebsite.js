@@ -1,3 +1,6 @@
 function a(){
-    window.location="login.html"
+    window.location="index.html"
+}
+function signup(){
+    window.location="index.html"
 }
