@@ -10,10 +10,4 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
-function signin(){
-    window.location="indexwebsite.html"
-}
 
-function signup(){
-    window.location="indexwebsite.html"
-}

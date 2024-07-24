@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Sign Up and Sign In</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebase.js"></script>
 </head>
+<body>
 <div class="container" id="container">
     <div class="form-container sign-up">
         <form>
             <h1>Create Account</h1>
             <div class="social-icons">
-                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <button id="googlelogosignup" type="button"><img src="images/google.png"></button>
+                <button id="githublogosignup" type="button"><img src="images/github.png"></button>
             </div>
-            <span>or use your email for registeration</span>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button onclick="signup()" type="button">Sign Up</button>
+            <span>or use your email for registration</span>
+            <div id="signupmessage" class="messagediv" style="display: none; font-size: 12px; color: red;"></div>            <input type="text" placeholder="Name" id="firstname">
+            <input type="email" placeholder="Email" id="emailaddress">
+            <input type="password" placeholder="Password" id="passcode">
+            <button type="button" onclick="signup()" aria-keyshortcuts="Enter">Sign Up</button>
         </form>
     </div>
     <div class="form-container sign-in">
         <form>
             <h1>Sign In</h1>
             <div class="social-icons">
-                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <button id="googlelogo" type="button"><img src="images/google.png"></button>
+                <button id="githublogo" type="button"><img src="images/github.png"></button>
             </div>
-            <span>or use your email password</span>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <a href="#">Forget Your Password?</a>
-            <button onclick="signin()" type="button">Sign In</button>
+            <span>or use your email and password</span>
+            <div id="signinmessage" class="messagediv" style="display: none; font-size: 12px; color: red;"></div>            
+            <input type="email" placeholder="Email" id="mail">
+            <input type="password" placeholder="Password" id="pass">
+            <label id="forgetpassword" style="cursor: pointer; font-size: 12px;">Forget Your Password?</label>
+            <button type="button" onclick="signin()">Sign In</button>
         </form>
     </div>
     <div class="toggle-container">
@@ -59,5 +57,4 @@
 
 <script src="script.js"></script>
 </body>
-
 </html>

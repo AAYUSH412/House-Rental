@@ -128,19 +128,23 @@ body{
     }
 }
 
-.social-icons{
+.social-icons img{
     margin: 20px 0;
+    height: 30px;
+    cursor: pointer;
+
 }
 
-.social-icons a{
-    border: 1px solid #ccc;
-    border-radius: 20%;
+.social-icons button{
     display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0 3px;
-    width: 40px;
-    height: 40px;
+    height: 35px;
+    width: 10px;
+    gap: 15px;
+    padding: 20px;
+    background-color: white;
 }
 
 .toggle-container{
@@ -207,4 +211,31 @@ body{
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+.massagediv{
+    color: black;
+    padding: top 10px; 
+    opacity: 0;
+    animation: fadeout 7s forwards;
+}
+
+.sign-in h1{
+    padding-bottom: 15px;
+}
+.sign-in span{
+    padding-top: 15px;
+}
+.sign-up h1{
+    padding-bottom: 15px;
+}
+.sign-up span{
+    padding-top: 15px;
+}
+.sign-in .signupmessage{
+    font-size: 12px;
+}
+.sign-up .signupmessage{
+    font-size: 12px;
+    
+  
 }
