@@ -1,21 +1,25 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword ,GoogleAuthProvider,signInWithPopup,GithubAuthProvider,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyD8SHfwV0EG_k8lJ-r5hYV_SDIH-TghP3k",
-    authDomain: "house-rental-fee41.firebaseapp.com",
-    projectId: "house-rental-fee41",
-    storageBucket: "house-rental-fee41.appspot.com",
-    messagingSenderId: "419733203124",
-    appId: "1:419733203124:web:0795af27409e3351efcfe1",
-    measurementId: "G-CZN4K8340K"
-};
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBI_bHdk1Zx6-mD8oOT8JsQhtdl0H6QP1c",
+    authDomain: "house-rental-fd97d.firebaseapp.com",
+    projectId: "house-rental-fd97d",
+    storageBucket: "house-rental-fd97d.appspot.com",
+    messagingSenderId: "338300928463",
+    appId: "1:338300928463:web:410b85334033c01bfd12ba",
+    measurementId: "G-TLKG5DWQQX"
+  };
 
-// Initialize Firebase
+  // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
@@ -43,7 +47,7 @@ function signup() {
             if (signupMessageDiv) {
                 signupMessageDiv.style.display = "block";
                 signupMessageDiv.innerText = "User registered successfully!";
-                window.location.href = 'indexwebsite.html';
+                window.location.href = '../../main/indexwebsite.html';
             }
         })
         .catch((error) => {
@@ -70,7 +74,7 @@ function signin() {
             if (signinMessageDiv) {
                 signinMessageDiv.style.display = "block";
                 signinMessageDiv.innerText = "User signed in successfully!";
-                window.location.href = 'indexwebsite.html';
+                window.location.href = '../../main/indexwebsite.html';
             }
         })
         .catch((error) => {
@@ -99,7 +103,7 @@ const userSignIn= async() => {
   .then((result) => {
     const user=result.user;
     console.log(user);
-    window.location.href = 'indexwebsite.html';
+    window.location.href = '../../main/indexwebsite.html';
   })
   .catch((error) => {
     const errorMessage = formatFirebaseErrorMessage(error.message);
@@ -119,7 +123,7 @@ const userGithubLogin= async() => {
     .then((result) => {
         const user=result.user;
         console.log(user);
-        window.location.href = 'indexwebsite.html';
+        window.location.href = '../../main/indexwebsite.html';
     })
     .catch((error) => {
     const errorMessage = error.message;
