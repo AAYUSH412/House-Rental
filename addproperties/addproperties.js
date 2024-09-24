@@ -1,15 +1,15 @@
 function a(){
-    window.location="../index.html"
+    window.location="../login/index.html"
 }
 function home(){
-    window.location="../main/indexwebsite.html"
+    window.location="../indexwebsite.html"
 }
 function aboutus(){
-    window.location="../main/indexwebsite.html"
+    window.location="../indexwebsite.html"
 }
 function sales(){
-    window.location="../main/indexwebsite.html"
+    window.location="../indexwebsite.html"
 }
 function properties(){
-    window.location="../main/indexwebsite.html"
+    window.location="../indexwebsite.html"
 }
