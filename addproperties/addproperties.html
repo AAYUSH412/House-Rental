@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rental System</title>
+    <link rel="stylesheet" href="addproperties.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" type="../image/jpg" href="../images/home-regular-24.png" />
+</head>
+
+<body>
+    <!--navbar-->
+    <header>
+        <div class="nav container">
+            <a class="logo" onclick="home()"><i class="bx bx-home" onclick="home()"></i>R State</a>
+            <!--menu-->
+            <input type="checkbox" name="" id="menu">
+            <label for="menu" <i class="bx bx-home" id="menu-icon"></label>
+            <!--list-->
+            <ul class="navbar">
+                <a onclick="home()" id="home">Home</a>
+                <a onclick="aboutus()">About us</a>
+                <a onclick="sales()">Sales</a>
+                <a onclick="properties()" ">Properties</a>
+            </ul>
+            <div class=" btn-container">
+
+                    <a class="btn" onclick="a()" id="login">Log in</a>
+        </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="form-container">
+            <h2>Add New Property</h2>
+            <form id="propertyForm">
+                <label for="propertyName">Property Name</label>
+                <input type="text" id="propertyName" name="propertyName" required>
+
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" required>
+
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="type">Type</label>
+                <select id="type" name="type" required>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Condo">Condo</option>
+                </select>
+
+                <label for="images">Upload Images</label>
+                <input type="file" id="images" name="images" accept="image/*" multiple onchange="previewImages()" required>
+                <div id="imagePreview"></div>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <label for="contactDetails">Contact Details</label>
+                <input type="text" id="contactDetails" name="contactDetails" required>
+
+                <label for="features">Additional Features</label>
+                <input type="text" id="features" name="features" placeholder="e.g., garden, pool, parking">
+
+                <button type="submit">Submit Property</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <div class="home-image">
+                <img src="../images/steptodown.com847070.jpg" alt="Home Image">
+            </div>
+        </div>
+    </div>
+    
+    <script src="addproperties.js"></script>
+</body>
+
+</html>

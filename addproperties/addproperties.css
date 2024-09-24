@@ -1,0 +1,163 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top:4rem;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  :root {
+    --main-color: #2288ff;
+    --second-color: #192f6a;
+    --text-color: #314862;
+    --bg-color: #fff;
+  
+    --box-shadow: 2px 2px 2px rgb(14 52 54 / 15%);
+  }
+
+  header {
+    display: block;
+    width: 100%;
+    background: var(--bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+   
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 20px 35px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .logo .bx {
+    font-size: 24px;
+    color: var(--main-color);
+  }
+  .navbar{
+    display: flex;
+  }
+  .navbar a{
+    padding:  10px 20px;
+    color: var(--text-color);
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .navbar a #home{
+    padding-left: 230px;
+  }
+  .navbar :hover{
+    color: blue;
+  }
+  #menu-icon{
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+  }
+  #menu{
+      display: none;
+  }
+  .btn-container {
+    display: flex;
+    gap: 10px;
+  }
+  .btn{
+    padding:  8px 22px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border-radius: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+  .btn:hover{
+    background: #247ee6;
+    background: linear-gradient(to bottom, #3990ff, #2b86f5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+  }
+
+  .main-container {
+    display: flex;
+    margin-top: 80px; /* Adjust for the fixed header */
+    padding: 20px;
+}
+
+.form-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-container {
+    flex: 1;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: blue;
+}
+
+#imagePreview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#imagePreview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.home-image {
+  max-width: 100%;
+}
+
+.home-image img {
+  width: 100%;
+  border-radius: 10px;
+  padding-top: 70px;
+}

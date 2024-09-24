@@ -75,6 +75,9 @@ header {
   text-transform: uppercase;
   font-weight: 500;
 }
+#homenavbar{
+  padding-left: 230px;
+}
 .navbar :hover{
   color: blue;
 }
@@ -85,6 +88,10 @@ header {
 }
 #menu{
     display: none;
+}
+.btn-container {
+  display: flex;
+  gap: 10px;
 }
 .btn{
   padding:  8px 22px;
@@ -373,21 +380,4 @@ padding: 40px;
 .footer-box #location a{
   color: white;
 }
-/* log in */
-.login{
-  display: grid;
-  grid-template-columns: 0.4fr 1fr;
-  align-items:  center;
-  min-height: 100vh;
-}
-.login-container{
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
-}
-.login-container h2{
-  font-size: 20px;
-}
-.login-container p{
-  font-size: 12px;
-}
+
