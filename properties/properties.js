@@ -1,14 +1,14 @@
 function move(){
-    window.location="../index.html"
+    window.location="../login/index.html"
 }
 function home(){
-    window.location="../indexwebsite.html"
+    window.location="../index/indexwebsite.html"
 }
 function aboutus(){
-    window.location="../indexwebsite.html"
+    window.location="../index/indexwebsite.html"
 }
 function sales(){
-    window.location="../indexwebsite.html"
+    window.location="../index/indexwebsite.html"
 }
 function properties(){
     window.location="../properties/properties.html"
