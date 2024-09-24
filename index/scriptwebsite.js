@@ -1,8 +1,8 @@
 function a(){
-    window.location="../login/index.html"
+    window.location="../index.html"
 }
 function signup(){
-    window.location="../login/index.html"
+    window.location="../index.html"
 }
 function toproperties(){
     window.location="../properties/properties.html"

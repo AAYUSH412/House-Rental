@@ -1,5 +1,5 @@
 function move(){
-    window.location="../login/index.html"
+    window.location="../index.html"
 }
 function home(){
     window.location="../index/indexwebsite.html"
