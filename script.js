@@ -10,3 +10,6 @@ function toproperties(){
 function move(){
     window.location="properties/properties.html"
 }
+function transferaddproperties(){
+    window.location="addproperties/addproperties.html"
+}
