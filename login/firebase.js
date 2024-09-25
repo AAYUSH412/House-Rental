@@ -47,7 +47,7 @@ function signup() {
             if (signupMessageDiv) {
                 signupMessageDiv.style.display = "block";
                 signupMessageDiv.innerText = "User registered successfully!";
-                window.location.href = 'index/indexwebsite.html';
+                window.location.href = '../index.html';
             }
         })
         .catch((error) => {
@@ -74,7 +74,7 @@ function signin() {
             if (signinMessageDiv) {
                 signinMessageDiv.style.display = "block";
                 signinMessageDiv.innerText = "User signed in successfully!";
-                window.location.href = 'index/indexwebsite.html';
+                window.location.href = '../index.html';
             }
         })
         .catch((error) => {
@@ -103,7 +103,7 @@ const userSignIn= async() => {
   .then((result) => {
     const user=result.user;
     console.log(user);
-    window.location.href = 'index/indexwebsite.html';
+    window.location.href = '../index.html';
   })
   .catch((error) => {
     const errorMessage = formatFirebaseErrorMessage(error.message);
@@ -123,7 +123,7 @@ const userGithubLogin= async() => {
     .then((result) => {
         const user=result.user;
         console.log(user);
-        window.location.href = 'index/indexwebsite.html';
+        window.location.href = '../index.html';
     })
     .catch((error) => {
     const errorMessage = error.message;
