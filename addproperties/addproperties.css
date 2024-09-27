@@ -63,6 +63,9 @@
   .navbar a #home{
     padding-left: 230px;
   }
+  #navproperty{
+    padding-right: 170px;
+  }
   .navbar :hover{
     color: blue;
   }
@@ -85,6 +88,7 @@
     border-radius: 5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
+    cursor: pointer;
   }
   .btn:hover{
     background: #247ee6;
@@ -140,18 +144,18 @@ button:hover {
 }
 
 #imagePreview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 #imagePreview img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  max-width: 100px;
+  max-height: 100px;
 }
+
 .home-image {
   max-width: 100%;
 }

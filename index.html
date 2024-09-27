@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
         <link rel="shortcut icon" type="image/jpg" href="images/home-regular-24.png"/>
+        <script type="module" src="login/auth.js"></script>
 
 </head>
 
@@ -29,11 +30,12 @@
                 <a href="#home" id="homenavbar">Home</a>
                 <a href="#About us">About us</a>
                 <a href="#Sales">Sales</a>
-                <a onclick="toproperties()">properties</a>
+                <a href="#"  onclick="toproperties()">properties</a>
             </ul>
             <div class="btn-container">
-                <a  class="btn" onclick="transferaddproperties()" id="login">Add Properties</a>
-                <a href="#" class="btn" onclick="a()" id="login">Log in</a>
+                <a class="btn" onclick="transferaddproperties()" id="add-properties">Add Properties</a>
+                <a href="#" class="btn" id="login-button" onclick="redirectToLogin()">Log in</a>
+                <a href="#" class="btn" id="logout-button" onclick="logout()" style="display: none;">Log out</a>
             </div>
         </div>
     </header>

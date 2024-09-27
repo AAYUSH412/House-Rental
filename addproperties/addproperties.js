@@ -19,14 +19,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
-// Initialize Firebase services
 const db = getDatabase(app); // Correctly initializing getDatabase
 const storage = getStorage(app);
 
+// Maximum file size for images (5MB)
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
 // Handle form submission
-document.getElementById("propertyForm").addEventListener("submit", function(e) {
+document.getElementById("propertyForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Prevent default form submission
+
+    const submitButton = document.getElementById("submit");
+    submitButton.disabled = true;
 
     // Get form values
     const propertyName = document.getElementById("propertyName").value;
@@ -36,59 +40,105 @@ document.getElementById("propertyForm").addEventListener("submit", function(e) {
     const description = document.getElementById("description").value;
     const contactDetails = document.getElementById("contactDetails").value;
     const features = document.getElementById("features").value;
+    const bedrooms = document.getElementById("bedrooms").value;
+    const bathrooms = document.getElementById("bathrooms").value;
+    const squareFeet = document.getElementById("squareFeet").value;
     const images = document.getElementById("images").files;
 
+    // Validate image files
     if (images.length === 0) {
         alert("Please select at least one image.");
+        submitButton.disabled = false;
         return;
     }
 
-    const propertyId = Date.now(); // Unique ID for property
-    const uploadPromises = [];
+    let uploadedImageCount = 0;
     const imageUrls = [];
 
-    // Upload images to Firebase Storage
+    // Upload each image
     for (let i = 0; i < images.length; i++) {
-        const image = images[i];
-        const imageRef = storageRef(storage, `properties/${propertyId}/${image.name}`);
-        const uploadTask = uploadBytesResumable(imageRef, image);
+        const file = images[i];
 
-        uploadPromises.push(new Promise((resolve, reject) => {
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    // Show upload progress
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    document.getElementById("uploadStatus").innerText = `Uploading ${image.name}: ${progress.toFixed(2)}% done.`;
-                },
-                (error) => reject(error),
-                () => {
-                    // Get download URL
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        imageUrls.push(downloadURL);
-                        resolve(downloadURL);
-                    });
-                }
-            );
-        }));
+        // Validate file size
+        if (file.size > MAX_FILE_SIZE) {
+            alert(`File ${file.name} is too large. Maximum size is 5MB.`);
+            submitButton.disabled = false;
+            return;
+        }
+
+        const storageReference = storageRef(storage, 'propertyImages/' + file.name);
+        const uploadTask = uploadBytesResumable(storageReference, file);
+
+        // Monitor the upload progress
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                document.getElementById("uploadStatus").innerText = `Uploading ${file.name}: ${progress.toFixed(2)}%`;
+            },
+            (error) => {
+                alert("Error uploading image: " + error.message);
+                submitButton.disabled = false;
+            },
+            () => {
+                // Upload completed successfully, now get the download URL
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    imageUrls.push(downloadURL);
+                    uploadedImageCount++;
+
+                    // If all images are uploaded, save property data to database
+                    if (uploadedImageCount === images.length) {
+                        const newPropertyRef = ref(db, 'properties/' + propertyName.replace(/\s+/g, '-'));
+                        set(newPropertyRef, {
+                            propertyName,
+                            price,
+                            location,
+                            type,
+                            description,
+                            contactDetails,
+                            features,
+                            bedrooms,
+                            bathrooms,
+                            squareFeet,
+                            images: imageUrls
+                        }).then(() => {
+                            alert("Property added successfully!");
+                            document.getElementById("propertyForm").reset();
+                            document.getElementById("uploadStatus").innerText = "";
+                            submitButton.disabled = false;
+                        }).catch((error) => {
+                            alert("Error adding property: " + error.message);
+                            submitButton.disabled = false;
+                        });
+                    }
+                });
+            }
+        );
     }
-
-    // Save property data after all images are uploaded
-    Promise.all(uploadPromises)
-        .then(() => {
-            set(ref(db, 'properties/' + propertyId), {
-                propertyName: propertyName,
-                price: price,
-                location: location,
-                type: type,
-                description: description,
-                contactDetails: contactDetails,
-                features: features,
-                images: imageUrls // Store image URLs
-            }).then(() => {
-                alert("Property submitted successfully!");
-                document.getElementById("propertyForm").reset();
-                document.getElementById("uploadStatus").innerText = ""; // Clear status
-            }).catch((error) => alert("Error saving property: " + error));
-        })
-        .catch((error) => alert("Error uploading images: " + error));
 });
+
+
+// Image preview function
+function previewImages() {
+    const previewContainer = document.getElementById("imagePreview");
+    previewContainer.innerHTML = ""; // Clear previous previews
+
+    const files = document.getElementById("images").files;
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            const imgElement = document.createElement("img");
+            imgElement.src = event.target.result;
+            imgElement.style.width = "100px"; // Set width for preview
+            imgElement.style.margin = "5px";
+            previewContainer.appendChild(imgElement);
+        }
+
+        reader.readAsDataURL(file);
+    }
+}
+
+// Ensure the function is available globally
+window.previewImages = previewImages;

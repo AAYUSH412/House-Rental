@@ -44,6 +44,7 @@ header {
   font-weight: 700;
   color: var(--text-color);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .logo .bx {
@@ -90,6 +91,7 @@ header {
   border-radius: 5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -189,7 +191,13 @@ header {
   color: var(--text-color);
 }
 
-/* Property Cards Styling */
+#propertiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
 .property-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -212,7 +220,7 @@ header {
 }
 
 .property-card img {
-  width: 100%;
+  width: 331.5px;
   height: 200px;
   object-fit: cover;
 }
@@ -220,29 +228,6 @@ header {
 .property-details {
   padding: 15px;
 }
-
-.property-actions {
-  padding: 15px;
-  display: flex;
-  justify-content: space-between; /* Space between buttons */
-  gap: 10px; /* Add gap between buttons */
-}
-
-button {
-  padding: 8px 12px;
-  background-color: var(--main-color);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-  margin-right: 10px; /* Add margin to space out buttons horizontally */
-}
-
-button:hover {
-  background-color: darkblue;
-}
-
 /* Footer Styling */
 .footer {
   background: var(--main-color);

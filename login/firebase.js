@@ -171,3 +171,31 @@ forget.addEventListener('click', () => {
         alert("Please enter your email address.");
     }
 });
+
+
+// Check authentication state and update UI
+onAuthStateChanged(auth, (user) => {
+    const loginButton = document.getElementById("login-button");
+    const logoutButton = document.getElementById("logout-button");
+  
+    if (user) {
+      // User is signed in
+      if (loginButton) loginButton.style.display = "none";
+      if (logoutButton) logoutButton.style.display = "block";
+    } else {
+      // User is signed out
+      if (loginButton) loginButton.style.display = "block";
+      if (logoutButton) logoutButton.style.display = "none";
+    }
+  });
+  
+  // Logout function
+  function logout() {
+    signOut(auth).then(() => {
+      window.location.href = '../index.html';
+    }).catch((error) => {
+      console.error("Error signing out: ", error);
+    });
+  }
+  
+  window.logout = logout;

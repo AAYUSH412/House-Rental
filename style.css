@@ -101,6 +101,7 @@ header {
   border-radius: 5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 .btn:hover{
   background: #247ee6;

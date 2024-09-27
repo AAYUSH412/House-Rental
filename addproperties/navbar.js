@@ -11,5 +11,8 @@ function sales(){
     window.location.href="../index.html"
 }
 function properties(){
+    window.location.href="../properties/properties.html"
+}
+function logout(){
     window.location.href="../index.html"
 }
