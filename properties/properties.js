@@ -40,7 +40,7 @@ function loadProperties() {
                 propertyCard.classList.add('property-card');
 
                 propertyCard.innerHTML = `
-                    <img src="${property.images[0]}" alt="${property.propertyName}">
+                    <img src="${property.images[0]}" alt="${property.propertyName}"loading="lazy">
                     <div class="property-details">
                         <h3>$${property.price}</h3>
                         <p>Location: ${property.location}</p>
