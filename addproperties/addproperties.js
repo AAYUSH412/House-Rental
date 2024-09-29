@@ -16,13 +16,13 @@ const firebaseConfig = {
   measurementId: "G-TLKG5DWQQX"
 };
 
-// Initialize Firebase
+//Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getDatabase(app); // Correctly initializing getDatabase
 const storage = getStorage(app);
 
-// Maximum file size for images (5MB)
+
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 // Handle form submission
@@ -105,6 +105,7 @@ document.getElementById("propertyForm").addEventListener("submit", function (e) 
                             document.getElementById("propertyForm").reset();
                             document.getElementById("uploadStatus").innerText = "";
                             submitButton.disabled = false;
+                            clearImagePreview(); 
                         }).catch((error) => {
                             alert("Error adding property: " + error.message);
                             submitButton.disabled = false;
@@ -139,6 +140,11 @@ function previewImages() {
         reader.readAsDataURL(file);
     }
 }
+function clearImagePreview() {
+    const previewContainer = document.getElementById("imagePreview");
+    previewContainer.innerHTML = ""; // Clear the preview container
+}
 
 // Ensure the function is available globally
 window.previewImages = previewImages;
+window.clearImagePreview = clearImagePreview;
