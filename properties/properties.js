@@ -32,7 +32,10 @@ function loadProperties() {
         const propertiesData = snapshot.val();
 
         if (propertiesData) {
+            let count = 0;
             Object.keys(propertiesData).forEach((propertyId) => {
+                if (window.location.pathname.includes('index.html') && count >= 6) return; // Limit to 6 property cards on index.html
+
                 const property = propertiesData[propertyId];
 
                 // Create a property card
@@ -40,20 +43,21 @@ function loadProperties() {
                 propertyCard.classList.add('property-card');
 
                 propertyCard.innerHTML = `
-                    <img src="${property.images[0]}" alt="${property.propertyName}"loading="lazy">
+                    <img src="${property.images[0]}" alt="${property.propertyName}" loading="lazy">
                     <div class="property-details">
-                    <h3>${property.propertyName}</h3>
+                        <h3>${property.propertyName}</h3>
                         <h4>$${property.price}</h4>
                         <p>Location: ${property.location}</p>
                         <div class="amenities">
-                    <i class="bx bx-bed"><span>${property.bedrooms || '0'}</span></i>
-                    <i class="bx bx-bath"><span>${property.bathrooms || '0'}</span></i>
-                </div>
+                            <i class="bx bx-bed"><span>${property.bedrooms || '0'}</span></i>
+                            <i class="bx bx-bath"><span>${property.bathrooms || '0'}</span></i>
+                        </div>
                         <p>${property.squareFeet} sq ft</p>
                     </div>
                 `;
 
                 propertiesContainer.appendChild(propertyCard);
+                count++;
             });
         } else {
             propertiesContainer.innerHTML = "<p>No properties available at the moment.</p>";
