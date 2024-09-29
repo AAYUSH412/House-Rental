@@ -12,6 +12,7 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10
   const firebaseConfig = {
     apiKey: "AIzaSyBI_bHdk1Zx6-mD8oOT8JsQhtdl0H6QP1c",
     authDomain: "house-rental-fd97d.firebaseapp.com",
+    databaseURL: "https://house-rental-fd97d-default-rtdb.firebaseio.com",
     projectId: "house-rental-fd97d",
     storageBucket: "house-rental-fd97d.appspot.com",
     messagingSenderId: "338300928463",
