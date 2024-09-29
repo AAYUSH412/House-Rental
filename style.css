@@ -229,16 +229,7 @@ header {
 .heading p{
   font-size: 14px;
 }
-.properties {
-  background: #fbfbfb;
-  border-radius: 32px;
-}
-.properties-container2 {
- display: grid;
- grid-template-columns: repeat(auto-fit,minmax(240px,160px));
-gap: 20px;
-padding: 40px;
-}
+
 @media (min-width: 481px) {
   .properties-container2 {
     grid-template-columns: repeat(3, 1fr);
@@ -250,53 +241,60 @@ padding: 40px;
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.properties-container2 .box{
-  background: var(--bg-color);
-  padding: 10px;
-  border-radius: 16px;
-  box-shadow: var(--box-shadow);
+.featured-properties {
+  padding: 50px;
+  background-color: #f0f4f8;
 }
-.properties-container2 .box img{
-  border-radius: 16px;
+
+.featured-properties h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: var(--text-color);
+}
+#properties{
+  padding: 50px;
+}
+#propertiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.property-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.property-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.property-card img {
+  width: 331.5px;
   height: 200px;
   object-fit: cover;
-  object-position: center;
 }
-.properties-container2 .box:hover{
-  transform: translateY(-10px);
-  transition: 0.1s;
+
+.property-details {
+  padding: 15px;
 }
-.properties-container2 .box .h3{
-  font-size:16px;
-  font-weight: 600;
-  float: right;
-}
-.properties-container2 .box .content{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 32px;
-}
-.properties-container2 .box .content .text h3{
-  font-weight: 500;
-}
-.properties-container2 .box .content .text p{
-  font-size: 14px;
-}
-.properties-container2 .box .content .icon{
-  display: flex;
-  align-items: center;
-  column-gap: 16px;
-}
-.properties-container2 .box .content .icon .bx{
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-}
-.properties-container2 .box .content .icon span{
-  font-size: 12px;
-  font-weight: 500;
-  margin-left: 4px;
-}
+/* <!--footer--> */
 .newsletter{
   display: flex;
   flex-direction: column;

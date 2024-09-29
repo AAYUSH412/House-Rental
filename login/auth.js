@@ -40,7 +40,7 @@ onAuthStateChanged(auth, (user) => {
 // Logout function
 function logout() {
   signOut(auth).then(() => {
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
   }).catch((error) => {
     console.error("Error signing out: ", error);
   });
@@ -57,7 +57,11 @@ function move(){
     window.location.href = '../login/login.html';
 
 }
+function propertieslogin(){
+    window.location.href = '../login/login.html';
+}
   window.logout = logout;
   window.redirectToLogin = redirectToLogin;
   window.redirectToLoginforaddpro = redirectToLoginforaddpro;
     window.move = move;
+    window.propertieslogin = propertieslogin;

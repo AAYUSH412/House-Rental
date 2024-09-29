@@ -42,9 +42,13 @@ function loadProperties() {
                 propertyCard.innerHTML = `
                     <img src="${property.images[0]}" alt="${property.propertyName}"loading="lazy">
                     <div class="property-details">
-                        <h3>$${property.price}</h3>
+                    <h3>${property.propertyName}</h3>
+                        <h4>$${property.price}</h4>
                         <p>Location: ${property.location}</p>
-                        <p>${property.bedrooms} Bedrooms, ${property.bathrooms} Bathrooms</p>
+                        <div class="amenities">
+                    <i class="bx bx-bed"><span>${property.bedrooms || '0'}</span></i>
+                    <i class="bx bx-bath"><span>${property.bathrooms || '0'}</span></i>
+                </div>
                         <p>${property.squareFeet} sq ft</p>
                     </div>
                 `;
