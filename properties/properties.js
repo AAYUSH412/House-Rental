@@ -53,7 +53,7 @@ function loadProperties() {
                             <i class="bx bx-bath"><span>${property.bathrooms || '0'}</span></i>
                         </div>
                         <p>${property.squareFeet} sq ft</p>
-                        <p class="contactPhone">${property.contactPhone}</p> <!-- Ensure this element exists -->
+                        
                         <button class="contact-details-button">Contact Details</button>
                     </div>
                 `;
@@ -86,7 +86,8 @@ function searchProperties() {
 
     Array.from(propertyCards).forEach(card => {
         const propertyName = card.querySelector('.property-details h3').innerText.toLowerCase();
-        const contactPhone = card.querySelector('.contactPhone') ? card.querySelector('.contactPhone').innerText : 'N/A';
+        const contactPhoneElement = card.querySelector('.contactPhone p'); // Get the contactPhone element
+        const contactPhone = contactPhoneElement ? contactPhoneElement.innerText : 'N/A'; // Ensure it's a valid element
 
         if (propertyName.includes(searchInput)) {
             const clonedCard = card.cloneNode(true);

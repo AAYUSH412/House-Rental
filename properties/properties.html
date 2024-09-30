@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>House Rental System</title>
-        <link rel="stylesheet" href="propertiesstyle.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-            rel="stylesheet">
-            <link rel="shortcut icon" type="../image/jpg" href="../images/home-regular-24.png"/>
-        <script type="module" src="../login/auth.js"></script>
-    
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Rental System</title>
+    <link rel="stylesheet" href="propertiesstyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="../image/jpg" href="../images/home-regular-24.png"/>
+    <script type="module" src="../login/auth.js"></script>
 </head>
 <body>
     <!-- navbar -->
@@ -27,14 +22,14 @@
             <label for="menu" <i class="bx bx-home" id="menu-icon"></label>
             <!--list-->
             <ul class="navbar">
-                <a  onclick="home()" id="home">Home</a>
-                <a  onclick="aboutus()" >About us</a>
-                <a  onclick="sales()" >Sales</a>
-                <a  onclick="properties()" >Properties</a>
+                <a onclick="home()" id="home">Home</a>
+                <a onclick="aboutus()">About us</a>
+                <a onclick="sales()">Sales</a>
+                <a onclick="properties()">Properties</a>
             </ul>
             <div class="btn-container">
-            <a href="#" class="btn" onclick="addpro()" id="login">Add Properties</a>
-            <a href="#" class="btn" id="login-button" onclick="propertieslogin()">Log in</a>
+                <a href="#" class="btn" onclick="addpro()" id="login">Add Properties</a>
+                <a href="#" class="btn" id="login-button" onclick="propertieslogin()">Log in</a>
                 <a href="#" class="btn" id="logout-button" onclick="logout()" style="display: none;">Log out</a>
             </div>
         </div>
@@ -44,7 +39,6 @@
     <div class="hero-section">
         <div class="hero-content">
             <h1>Find Your Dream Home</h1>
-            
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search by location, property type..." oninput="autocompleteSuggestions()" />
                 <button id="searchButton" onclick="searchProperties()">Search</button>
@@ -52,11 +46,9 @@
             <div class="navigation-buttons">
                 <button onclick="addnew()">Add New Property</button>
             </div>
-            
-            
-            
         </div>
     </div>
+
     <section class="search-results" id="searchResultsSection" style="display: none;">
         <h2>Your Results</h2>
         <div class="property-cards" id="searchResultsContainer">
@@ -78,13 +70,11 @@
             <p id="contactPhone"></p>
         </div>
     </div>
-     
 
     <!--footer-->
     <section class="footer">
         <div class="footer-container container">
-            <h2>R. State
-            </h2>
+            <h2>R. State</h2>
             <div class="footer-box">
                 <h3>Quick Link</h3>
                 <a href="#">Agency</a>
@@ -105,13 +95,11 @@
                     <a href="#"><i class="bx bxl-facebook"></i></a>
                     <a href="#"><i class="bx bxl-twitter"></i></a>
                     <a href="#"><i class="bx bxl-instagram"></i></a>
-
                 </div>
             </div>
         </div>
     </section>
-    
-    
+
     <script type="module" src="properties.js"></script>
     <script src="propertiesnavbar.js"></script>
     <script src="../addproperties/addproperties.html"></script>
