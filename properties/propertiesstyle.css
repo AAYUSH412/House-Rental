@@ -141,6 +141,8 @@ header {
   width: 250px;
   background-color: #f9f9f9; /* Light background color */
   color: var(--text-color); /* Visible text color */
+  height: 56px;
+  width: 426px;
 }
 
 .search-bar button {
@@ -155,6 +157,33 @@ header {
 
 .search-bar button:hover {
   background-color: #1a6bd6; /* Darken on hover */
+}
+
+/* Autocomplete Suggestions Styling */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 60px; /* Adjust based on input height */
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.autocomplete-suggestions div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.autocomplete-suggestions div:hover {
+  background-color: #f0f0f0;
+}
+#autocompleteOptions {
+  display: none; /* Hide the datalist by default */
 }
 
 /* Navigation Buttons Styling */
@@ -178,7 +207,40 @@ header {
 .navigation-buttons button:hover {
   background-color: #555;
 }
-/* Featured Properties Section */
+/* Search Results Section */
+.search-results {
+  padding: 50px;
+  background-color: #e0e7ef;
+  border-radius: 20px;
+}
+
+.search-results h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  color: var(--text-color);
+}
+
+#searchResultsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+#searchResultsSection {
+  display: none; 
+}
+.contact-details-button { 
+  padding: 8px 16px; 
+  font-size: 14px; 
+  background-color: var(--main-color); 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer; 
+  margin: 0 auto; 
+}
+
 /* Properties Section Styling */
 .featured-properties {
   padding: 50px;
@@ -229,6 +291,45 @@ header {
 .property-details {
   padding: 15px;
 }
+
+/* Contact Details Pop-up Styling */
+.contact-details-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.popup-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Footer Styling */
 .footer {
   background: var(--main-color);

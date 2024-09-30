@@ -53,15 +53,111 @@ function loadProperties() {
                             <i class="bx bx-bath"><span>${property.bathrooms || '0'}</span></i>
                         </div>
                         <p>${property.squareFeet} sq ft</p>
+                        <p class="contactPhone">${property.contactPhone}</p> <!-- Ensure this element exists -->
+                        <button class="contact-details-button">Contact Details</button>
                     </div>
                 `;
 
                 propertiesContainer.appendChild(propertyCard);
+                propertyCard.querySelector('.contact-details-button').addEventListener('click', () => {
+                    showContactDetails(property);
+                });
                 count++;
             });
         } else {
             propertiesContainer.innerHTML = "<p>No properties available at the moment.</p>";
         }
+    });
+}
+
+// Call loadProperties when the page loads
+document.addEventListener('DOMContentLoaded', loadProperties);
+
+// Function to handle the search
+function searchProperties() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const propertiesContainer = document.getElementById('propertiesContainer');
+    const searchResultsContainer = document.getElementById('searchResultsContainer');
+    const searchResultsSection = document.getElementById('searchResultsSection');
+    const propertyCards = propertiesContainer.getElementsByClassName('property-card');
+    searchResultsContainer.innerHTML = ''; // Clear previous search results
+
+    let hasResults = false;
+
+    Array.from(propertyCards).forEach(card => {
+        const propertyName = card.querySelector('.property-details h3').innerText.toLowerCase();
+        const contactPhone = card.querySelector('.contactPhone') ? card.querySelector('.contactPhone').innerText : 'N/A';
+
+        if (propertyName.includes(searchInput)) {
+            const clonedCard = card.cloneNode(true);
+            searchResultsContainer.appendChild(clonedCard);
+
+            // Add event listener for the contact details button in the cloned card
+            clonedCard.querySelector('.contact-details-button').addEventListener('click', () => {
+                showContactDetails({
+                    propertyName: propertyName,
+                    contactDetails: contactPhone 
+                });
+            });
+
+            hasResults = true;
+        }
+    });
+
+    // Show or hide the search results section
+    searchResultsSection.style.display = hasResults ? 'block' : 'none';
+}
+
+// Function to handle autocomplete suggestions
+function autocompleteSuggestions() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const propertiesContainer = document.getElementById('propertiesContainer');
+    const propertyCards = propertiesContainer.getElementsByClassName('property-card');
+    const suggestions = [];
+
+    Array.from(propertyCards).forEach(card => {
+        const type = card.querySelector('.property-details h3').innerText.toLowerCase();
+
+        if (type.includes(searchInput)) {
+            suggestions.push(`${type}`);
+        }
+    });
+
+    // Show suggestions in the input field
+    const datalist = document.createElement('datalist');
+    datalist.id = 'autocompleteOptions';
+    suggestions.forEach(suggestion => {
+        const option = document.createElement('option');
+        option.value = suggestion;
+        datalist.appendChild(option);
+    });
+
+    // Remove existing datalist if any
+    const existingDatalist = document.getElementById('autocompleteOptions');
+    if (existingDatalist) {
+        existingDatalist.remove();
+    }
+
+    // Append new datalist to the input field's parent
+    document.getElementById('searchInput').parentNode.appendChild(datalist);
+    document.getElementById('searchInput').setAttribute('list', 'autocompleteOptions');
+}
+
+// Ensure the functions are available globally
+window.searchProperties = searchProperties;
+window.autocompleteSuggestions = autocompleteSuggestions;
+
+function showContactDetails(property) {
+    console.log(property); 
+    document.getElementById('contactName').innerText = `Name: ${property.propertyName}`;
+    document.getElementById('contactPhone').innerText = `Phone: ${property.contactDetails}`;
+
+    const contactDetailsPopup = document.getElementById('contactDetailsPopup');
+    contactDetailsPopup.style.display = 'block';
+
+    // Add event listener to close the pop-up
+    contactDetailsPopup.querySelector('.close-button').addEventListener('click', () => {
+        contactDetailsPopup.style.display = 'none';
     });
 }
 

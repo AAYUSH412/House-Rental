@@ -14,3 +14,6 @@ function properties(){
 function addpro(){
     window.location.href="../addproperties/addproperties.html"
 }
+function addnew(){
+    window.location.href="../addproperties/addproperties.html"
+}

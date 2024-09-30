@@ -46,30 +46,38 @@
             <h1>Find Your Dream Home</h1>
             
             <div class="search-bar">
-                <input type="text" placeholder="Search by location, property type..." />
-                <select>
-                    <option value="buy">Buy</option>
-                    <option value="sell">Sell</option>
-                    <option value="rent">Rent</option>
-                </select>
-                <button>Search</button>
+                <input type="text" id="searchInput" placeholder="Search by location, property type..." oninput="autocompleteSuggestions()" />
+                <button id="searchButton" onclick="searchProperties()">Search</button>
+            </div>
+            <div class="navigation-buttons">
+                <button onclick="addnew()">Add New Property</button>
             </div>
             
-            <div class="navigation-buttons">
-                <button>Buy House</button>
-                <button>Sell House</button>
-                <button>Rent a House</button>
-                <button>Add New Property</button>
-            </div>
+            
+            
         </div>
     </div>
-
+    <section class="search-results" id="searchResultsSection" style="display: none;">
+        <h2>Your Results</h2>
+        <div class="property-cards" id="searchResultsContainer">
+            <!-- Search results will be displayed here -->
+        </div>
+    </section>
     <section class="featured-properties">
         <h2>Featured Properties</h2>
         <div class="property-cards" id="propertiesContainer">
             <!-- Dynamic property cards will be generated here -->
         </div>
     </section>
+
+    <div id="contactDetailsPopup" class="contact-details-popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <h3>Contact Details</h3>
+            <p id="contactName"></p>
+            <p id="contactPhone"></p>
+        </div>
+    </div>
      
 
     <!--footer-->
@@ -106,5 +114,6 @@
     
     <script type="module" src="properties.js"></script>
     <script src="propertiesnavbar.js"></script>
+    <script src="../addproperties/addproperties.html"></script>
 </body>
 </html>
