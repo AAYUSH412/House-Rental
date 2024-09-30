@@ -55,6 +55,9 @@ function loadProperties() {
                         <p>${property.squareFeet} sq ft</p>
                         
                         <button class="contact-details-button">Contact Details</button>
+                        <div class="contactPhone" style="display: none;">
+                            <p>${property.contactDetails || 'N/A'}</p>
+                        </div>
                     </div>
                 `;
 
@@ -84,27 +87,29 @@ function searchProperties() {
 
     let hasResults = false;
 
-    Array.from(propertyCards).forEach(card => {
+    const filteredProperties = Array.from(propertyCards).filter(card => {
         const propertyName = card.querySelector('.property-details h3').innerText.toLowerCase();
-        const contactPhoneElement = card.querySelector('.contactPhone p'); // Get the contactPhone element
-        const contactPhone = contactPhoneElement ? contactPhoneElement.innerText : 'N/A'; // Ensure it's a valid element
-
-        if (propertyName.includes(searchInput)) {
-            const clonedCard = card.cloneNode(true);
-            searchResultsContainer.appendChild(clonedCard);
-
-            // Add event listener for the contact details button in the cloned card
-            clonedCard.querySelector('.contact-details-button').addEventListener('click', () => {
-                showContactDetails({
-                    propertyName: propertyName,
-                    contactDetails: contactPhone 
-                });
-            });
-
-            hasResults = true;
-        }
+        return propertyName.includes(searchInput);
     });
 
+    filteredProperties.map(card => {
+        const clonedCard = card.cloneNode(true);
+        searchResultsContainer.appendChild(clonedCard);
+
+        // Add event listener for the contact details button in the cloned card
+        clonedCard.querySelector('.contact-details-button').addEventListener('click', () => {
+            const propertyName = card.querySelector('.property-details h3').innerText;
+            const contactPhoneElement = card.querySelector('.contactPhone p'); // Get the contactPhone element
+            const contactPhone = contactPhoneElement ? contactPhoneElement.innerText : 'N/A'; // Ensure it's a valid element
+
+            showContactDetails({
+                propertyName: propertyName,
+                contactDetails: contactPhone 
+            });
+        });
+
+        hasResults = true;
+    });
     // Show or hide the search results section
     searchResultsSection.style.display = hasResults ? 'block' : 'none';
 }
