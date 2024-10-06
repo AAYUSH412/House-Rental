@@ -34,8 +34,9 @@ function loadProperties() {
         if (propertiesData) {
             let count = 0;
             Object.keys(propertiesData).forEach((propertyId) => {
-                if (window.location.pathname.includes('index.html') && count >= 6) return; // Limit to 6 property cards on index.html
-
+                if (window.location.href.includes('index.html') && count >= 6) {
+                    return; // Limit to 6 property cards on index.html
+                }
                 const property = propertiesData[propertyId];
 
                 // Create a property card
