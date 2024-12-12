@@ -72,7 +72,6 @@ This project is licensed under the 📝 [MIT License](LICENSE).
 
 For any questions or feedback, feel free to reach out:
 
-- 📧 **Email:** aayush@example.com
 - 🐙 **GitHub:** [AAYUSH412](https://github.com/AAYUSH412)
 
 ---
